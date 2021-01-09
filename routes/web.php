@@ -16,3 +16,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('foo', function () {
+    return 'Hello World';
+});
+
+$router->get('products', '\App\Http\Controllers\ProductController@index');
+$router->post('product', '\App\Http\Controllers\ProductController@create');
+$router->get('product/{id}', '\App\Http\Controllers\ProductController@show');
+$router->put('product/{id}', '\App\Http\Controllers\ProductController@update');
+$router->delete('product/{id}', '\App\Http\Controllers\ProductController@destroy');
+
