@@ -1,6 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +31,7 @@ $router->get('product/{id}', '\App\Http\Controllers\ProductController@show');
 $router->put('product/{id}', '\App\Http\Controllers\ProductController@update');
 $router->delete('product/{id}', '\App\Http\Controllers\ProductController@destroy');
 
+$router->post('user', '\App\Http\Controllers\UserController@create');
+$router->post('user-login', '\App\Http\Controllers\UserController@authenticate');
+
+$router->get('test', '\App\Http\Controllers\UserController@test');
