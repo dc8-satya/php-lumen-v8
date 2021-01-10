@@ -35,3 +35,15 @@ $router->post('user', '\App\Http\Controllers\UserController@create');
 $router->post('user-login', '\App\Http\Controllers\UserController@authenticate');
 
 $router->get('test', '\App\Http\Controllers\UserController@test');
+
+
+
+$router->group(['prefix' => 'api/'], function ($router) {
+    $router->post('todo', '\App\Http\Controllers\TodoController@create');
+//    $app->get('login/','UsersController@authenticate');
+//    $app->post('todo/','TodoController@store');
+//    $app->get('todo/', 'TodoController@index');
+//    $app->get('todo/{id}/', 'TodoController@show');
+//    $app->put('todo/{id}/', 'TodoController@update');
+//    $app->delete('todo/{id}/', 'TodoController@destroy');
+});
