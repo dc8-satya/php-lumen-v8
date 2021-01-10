@@ -34,4 +34,14 @@ $router->delete('product/{id}', '\App\Http\Controllers\ProductController@destroy
 $router->post('user', '\App\Http\Controllers\UserController@create');
 $router->post('user-login', '\App\Http\Controllers\UserController@authenticate');
 
-$router->get('test', '\App\Http\Controllers\UserController@test');
+//$router->post('login', '\App\Http\Controllers\AuthController@login');
+
+// API route group
+$router->group(['prefix' => 'api'], function () use ($router) {
+    // Matches "/api/register
+    $router->post('register', '\App\Http\Controllers\AuthController@register');
+
+    // Matches "/api/login
+    $router->post('login', '\App\Http\Controllers\AuthController@login');
+    $router->post('me', '\App\Http\Controllers\AuthController@me');
+});
